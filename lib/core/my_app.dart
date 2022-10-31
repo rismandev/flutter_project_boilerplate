@@ -3,6 +3,7 @@ import 'package:flutter_project_boilerplate/features/welcome/presentation/pages/
 
 import 'navigators/navigation.dart';
 import 'navigators/route.dart';
+import 'theme/theme_data.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,11 +18,11 @@ class MyApp extends StatelessWidget {
       // supportedLocales: supportedLocales,
       // localizationsDelegates: localizationsDelegates,
       // locale: localeEN,
-      // theme: getDefaultTheme(),
-      // darkTheme: getDarkTheme(),
-      // themeMode: ThemeMode.light,
-      //
-      //
+
+      theme: getLightTheme(),
+      darkTheme: getDarkTheme(),
+      themeMode: ThemeMode.system,
+
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
       onGenerateRoute: onGenerateRoutes,
