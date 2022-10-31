@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_boilerplate/core/navigators/navigation.dart';
+import 'package:flutter_project_boilerplate/core/theme/text_theme.dart';
 import 'package:flutter_project_boilerplate/core/widgets/app_scaffold.dart';
 import 'package:flutter_project_boilerplate/features/auth/presentation/pages/login_page.dart';
 
@@ -18,21 +19,40 @@ class RegisterPage extends StatelessWidget {
             Text(
               "Register Page",
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleLarge,
+              style: getTextTheme().titleLarge,
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 navigate(LoginPage.routeName);
               },
-              child: const Text("Login"),
+              child: Text(
+                "Login",
+                textAlign: TextAlign.center,
+                style: getTextTheme().bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1.15,
+                    ),
+              ),
             ),
             const SizedBox(height: 10),
             OutlinedButton(
               onPressed: () {
                 navigateBack();
               },
-              child: const Text("Back"),
+              style: ButtonStyle(
+                side: MaterialStateProperty.all(
+                  BorderSide(color: Theme.of(context).primaryColor, width: 1.5),
+                ),
+              ),
+              child: Text(
+                "Back",
+                textAlign: TextAlign.center,
+                style: getTextTheme().bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1.15,
+                    ),
+              ),
             ),
           ],
         ),
