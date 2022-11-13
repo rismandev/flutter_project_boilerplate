@@ -10,6 +10,7 @@ ThemeData getLightTheme() {
   return ThemeData(
     fontFamily: GoogleFonts.actor().fontFamily,
     backgroundColor: lightPrimaryBg,
+    brightness: Brightness.light,
     scaffoldBackgroundColor: lightSecondaryBg,
     textTheme: getTextTheme().copyWith(
       displaySmall:
@@ -121,6 +122,7 @@ ThemeData getDarkTheme() {
       labelLarge: getTextTheme().labelLarge?.copyWith(color: darkPrimaryTxt),
     ),
     backgroundColor: darkPrimaryBg,
+    brightness: Brightness.dark,
     scaffoldBackgroundColor: darkSecondaryBg,
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(

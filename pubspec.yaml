@@ -40,6 +40,12 @@ dependencies:
   # Fonts styling
   google_fonts: ^3.0.1
 
+  # State Management
+  provider: ^6.0.4
+
+  # Generic or Sealed Class
+  dartz: ^0.10.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -7,19 +7,22 @@ class WideTextFieldWidget extends StatelessWidget {
     this.hintText,
     this.width,
     this.height,
+    this.enabled,
     this.controller,
     this.focusNode,
     this.keyboardType,
     this.prefixIcon,
     this.suffixIcon,
     this.onChanged,
-    this.enabled,
+    this.validator,
+    this.obsecureText = false,
   });
 
   final String? hintText;
   final double? width;
   final double? height;
   final bool? enabled;
+  final bool obsecureText;
 
   final TextEditingController? controller;
   final FocusNode? focusNode;
@@ -28,7 +31,8 @@ class WideTextFieldWidget extends StatelessWidget {
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
 
-  final void Function(String)? onChanged;
+  final void Function(String value)? onChanged;
+  final String? Function(String? value)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +44,15 @@ class WideTextFieldWidget extends StatelessWidget {
       width: width ?? double.infinity,
       height: height,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         focusNode: focusNode,
         keyboardType: keyboardType,
         onChanged: onChanged,
         enabled: enabled,
-        onAppPrivateCommand: (p0, p1) {},
+        validator: validator,
+        obscureText: obsecureText,
+        obscuringCharacter: "*",
         style: textTheme.labelMedium,
         decoration: InputDecoration(
           hintText: hintText ?? "Enter text",
@@ -69,6 +75,16 @@ class WideTextFieldWidget extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
             borderSide: const BorderSide(color: colorPrimary, width: 1.25),
+          ),
+          errorMaxLines: 1,
+          errorStyle: textTheme.bodySmall?.copyWith(color: colorAlternate),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(6),
+            borderSide: const BorderSide(color: colorAlternate, width: 1.25),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(6),
+            borderSide: const BorderSide(color: colorAlternate, width: 1.25),
           ),
         ),
       ),

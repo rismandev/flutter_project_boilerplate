@@ -1,5 +1,5 @@
 # Data Folder
 
 1. Models
-2. Repos
+2. Implementation repository
 3. Constants
