@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_boilerplate/features/welcome/presentation/pages/welcome_page.dart';
 
+import 'my_providers/init_provider_widget.dart';
 import 'navigators/navigation.dart';
 import 'navigators/route.dart';
 import 'theme/theme_data.dart';
@@ -30,8 +31,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-          // child: InitProviderWidget(child: child),
-          child: child ?? const Offstage(),
+          child: InitProviderWidget(child: child),
         );
       },
     );
